@@ -10,6 +10,8 @@ resell this script u loser!!
 
 
 ]]
+
+
 repeat task.wait(1) until game.PlaceId ~= nil
 repeat task.wait(1) until game:GetService("Players") and game:GetService("Players").LocalPlayer
 repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui:FindFirstChild("__INTRO")
@@ -167,6 +169,8 @@ function completeQuest(goal)
 
 end
 
+
+--nhặt tiền và túi tiền
 local autoOrbConnection = nil
 local autoLootBagConnection = nil
 for i, v in workspace.__THINGS.Orbs:GetChildren() do
@@ -275,6 +279,7 @@ while getgenv().config.autoWorld do task.wait()
 	local rebirth = rbMod.GetNextRebirth()
 	teleportToZone(maxTable.ZoneFolder)
 
+	
 	local purchaseSuccess = Library.Network.Invoke("Zones_RequestPurchase", nextTable.ZoneName)
 	if purchaseSuccess and getgenv().config.progressNotifs then
 		sendNotif("```diff\n+ "..Player.Name.." has unlocked "..nextTable.ZoneName.." | "..tostring(os.date("%H:%M")).." \n```")	
@@ -288,6 +293,6 @@ while getgenv().config.autoWorld do task.wait()
 			end
 		end
 	end
-	
+
 	task.wait(20)
 end
