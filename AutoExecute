@@ -15,4 +15,4 @@ getgenv().config = {
     
     webURL = "",
 }
-loadstring(game:HttpGet("https://github.com/minhkinh186/script/blob/main/AutoWorldKitty"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/minhkinh186/script/main/AutoWorldKitty"))()
