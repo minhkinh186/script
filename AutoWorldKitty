@@ -10,8 +10,6 @@ resell this script u loser!!
 
 
 ]]
-
-
 repeat task.wait(1) until game.PlaceId ~= nil
 repeat task.wait(1) until game:GetService("Players") and game:GetService("Players").LocalPlayer
 repeat task.wait(1) until not game.Players.LocalPlayer.PlayerGui:FindFirstChild("__INTRO")
@@ -131,10 +129,10 @@ function completeQuest(goal)
 				firetouchinterest(HRP, Instances[obbyName].Teleports.Enter, 0)	
 				task.wait(1.5) 
 			end
-
+			
 			local Start = nil
 			local Goal = nil 
-
+			
 			if getActive() then
 				for i,v in pairs(getActive():GetDescendants()) do
 					if v.Name == "StartLine" then
@@ -154,7 +152,7 @@ function completeQuest(goal)
 				repeat HRP.CFrame = CFrame.new(Goal.Pad.Position + Vector3.new(0,15,0)) task.wait(1.5) until tostring(getActive()) ~= obbyName
 			end
 		end
-
+	
 	elseif goal.Type == 3 or goal.Type == 20 or goal.Type == 42 then
 		local BestEggMod = require(getBestEgg(true, nil)) 
 		if BestEggMod and Library.Balancing.CalcEggPrice(BestEggMod) * goal.Amount <= currencyMod.Get(worldCurrency) then
@@ -166,11 +164,9 @@ function completeQuest(goal)
 			end
 		end
 	end
-
+	
 end
 
-
---nhặt tiền và túi tiền
 local autoOrbConnection = nil
 local autoLootBagConnection = nil
 for i, v in workspace.__THINGS.Orbs:GetChildren() do
@@ -231,7 +227,7 @@ if getgenv().config.autoClaimMail then
 end
 
 spawn(function()
-	while getgenv().config.autoWorld do task.wait(60)
+	while getgenv().config.autoWorld do task.wait(30)
 		if rankMod.AllRewardsReady() then 
 			local claimCount = 1
 			while not rankMod.AllRewardsRedeemed() do
@@ -239,13 +235,13 @@ spawn(function()
 				task.wait(1) claimCount = claimCount + 1
 			end
 		end
-
+		
 		if getgenv().config.stopAtRank then
 			if rankMod.GetMaxRank() and rankMod.GetMaxRank() >= getgenv().config.stopAtRankNum then 
 				getgenv().config.autoRanks = false
 			end
 		end
-
+		
 		if getgenv().config.stopAtRebirth then
 			if rbMod.Get() and rbMod.Get() >= getgenv().config.stopAtRebirthNum then
 				getgenv().config.autoRebirth = false
@@ -279,7 +275,6 @@ while getgenv().config.autoWorld do task.wait()
 	local rebirth = rbMod.GetNextRebirth()
 	teleportToZone(maxTable.ZoneFolder)
 
-	
 	local purchaseSuccess = Library.Network.Invoke("Zones_RequestPurchase", nextTable.ZoneName)
 	if purchaseSuccess and getgenv().config.progressNotifs then
 		sendNotif("```diff\n+ "..Player.Name.." has unlocked "..nextTable.ZoneName.." | "..tostring(os.date("%H:%M")).." \n```")	
@@ -293,6 +288,4 @@ while getgenv().config.autoWorld do task.wait()
 			end
 		end
 	end
-
-	task.wait(20)
 end
