@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://hvauto.click/raw/SechMap"))()
+--loadstring(game:HttpGet("https://hvauto.click/raw/SechMap"))()
