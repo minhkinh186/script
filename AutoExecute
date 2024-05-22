@@ -1,0 +1,18 @@
+getgenv().config = {
+    targetArea = "Nothing",
+    autoWorld = true,
+    
+    autoRebirth = true,
+    stopAtRebirth = true
+    stopAtRebirthNum = 5,
+    
+    autoRanks = true, -- only egg and obby quest cuz im lazy lel
+    stopAtRank = false,
+    stopAtRankNum = 20,
+    
+    autoPetSlots = true,
+    autoClaimMail = false,
+    
+    webURL = "",
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/duongcuteleu/main/main/OpenTargetArea"))()
